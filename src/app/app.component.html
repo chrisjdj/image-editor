@@ -1,1 +1,79 @@
-hey
+<h1>Angular(v13) & <a href="https://evanw.github.io/glfx.js" target="_blank">glfx.js</a></h1>
+<span>(Perspective, Brightness / Contrast, Hue / Saturation)</span>
+
+
+<div class="advanced-editor">
+  <div class="image-original">
+    <canvas id="image-original"></canvas>
+
+    <div class="points">
+      <div class="point points1" cdkDragBoundary=".image-original" cdkDrag (cdkDragEnded)="pointMoved($event, 1)"></div>
+      <div class="point points2" cdkDragBoundary=".image-original" cdkDrag (cdkDragEnded)="pointMoved($event, 2)"></div>
+      <div class="point points3" cdkDragBoundary=".image-original" cdkDrag (cdkDragEnded)="pointMoved($event, 3)"></div>
+      <div class="point points4" cdkDragBoundary=".image-original" cdkDrag (cdkDragEnded)="pointMoved($event, 4)"></div>
+    </div>
+  </div>
+  <div id="img-container" class="img-container">
+    <span id="placeholder">Loading...</span>
+  </div>
+
+    <div class="editor-icons">
+      <section>
+        <mat-icon class="hover">brightness_medium</mat-icon>
+        <div class="feature">
+          <div>
+            <span>Brightness</span>
+            <mat-slider
+              [max]="1"
+              [min]="-1"
+              [step]="0.01"
+              [(ngModel)]="brightnessValue"
+              (change)="sliderChange($event.value, 1)">
+            </mat-slider>
+            <mat-icon (click)="sliderChange(0,1)">sync</mat-icon>
+          </div>
+          <div>
+            <span>Contrast</span>
+            <mat-slider
+              [max]="1"
+              [min]="-1"
+              [step]="0.01"
+              [(ngModel)]="contrastValue"
+              (change)="sliderChange($event.value, 2)">
+            </mat-slider>
+            <mat-icon (click)="sliderChange(0,2)">sync</mat-icon>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <mat-icon class="hover">invert_colors</mat-icon>
+        <div class="feature">
+          <div>
+            <span>Hue</span>
+            <mat-slider
+              [max]="1"
+              [min]="-1"
+              [step]="0.01"
+              [(ngModel)]="hueValue"
+              (change)="sliderChange($event.value, 3)">
+            </mat-slider>
+            <mat-icon (click)="sliderChange(0,3)">sync</mat-icon>
+          </div>
+          <div>
+            <span>Saturation</span>
+            <mat-slider
+              [max]="1"
+              [min]="-1"
+              [step]="0.01"
+              [(ngModel)]="saturationValue"
+              (change)="sliderChange($event.value, 4)">
+            </mat-slider>
+            <mat-icon (click)="sliderChange(0,4)">sync</mat-icon>
+          </div>
+        </div>
+      </section>
+    </div>
+</div>
+
+<a mat-raised-button color="primary" download="edited-image.png" href="{{advancedEditorImage}}">Download</a>
