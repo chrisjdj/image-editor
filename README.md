@@ -2,7 +2,7 @@
 
 image editor using [glfx.js](https://evanw.github.io/glfx.js) and Angular
 
-These effects - (Perspective, Brightness / Contrast, Hue / Saturation) -  could be applied on the demo. Move the (pink) points on the corners of the first image to see the perspective in action.
+Some effects in the glfx.js like - (Perspective, Brightness / Contrast, Hue / Saturation) -  are implemented in the project. Move the (pink) points on the corners of the first image to see the perspective in action.
 
 
 Demo - [https://chrisjollydj.github.io/image-editor/](https://chrisjollydj.github.io/image-editor/)
